@@ -11,10 +11,28 @@
 
     <body>
 
-        <h1 id="autor">Autor: TU NOMBRE AQUÍ</h1>
+        <h1 id="autor">Autor: Andrea Z.Cano</h1>
 
         <!-- https://vuejs.org/v2/guide/index.html -->
         <div id="app">
+            <div class="jumbotron">
+                <h1 class="display-4" id="title">{{ title }}</h1>
+              </div>
+              <div class="container mx-auto">
+                <div class="row">
+                    <div v-for="movie in col.collection.items" class="col-md-4 mb-3 card">
+                        <div class="container mt-4 mb-3">
+                            <div v-for="item in movie.data">
+                                <p class="font-weight-bold m-0">{{item.prompt}}</p>
+                                <p>{{item.value}}</p>
+                            </div>
+        
+                            <a :href="movie.href" class="btn btn-primary w-25" target="_blank">Ver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <!--
                  TODO: Mostrar datos del objeto collection. Ver archivo ./js/script.js
                - Cargar la librería de VueJS y el script ./js/script.js al final de la etiqueta <body>
